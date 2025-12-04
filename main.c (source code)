@@ -2903,6 +2903,8 @@ static int build_pairs_from_tokens(char (*words)[50], int wordCount, Pair out[],
     return ucnt;
 }
 
+
+
 // ===== 5. Stage4 - Reporting: Top N, Toxic, Comparison, Summary, Alphabetical List ======
 
 // Show Top N words (all tokens) using the chosen key and algorithm.
@@ -3181,7 +3183,10 @@ void list_alpha_all(void) {
     free(arr);
 }
 
+
+
 // ===== 6. Stage 4/5 - Saving Reports (TXT + optional CSV)
+
 // Write a full analysis report for the given token list into the provided FILE*.
 static void write_full_report(FILE* f,
     const char* sourcePath,
@@ -3530,6 +3535,7 @@ void saveResultsToFile(void) {
         return;
     }
 
+
     // 2. Clean up the filename entered by the user.
     char base[512];
     strncpy(base, outputFilePath, sizeof(base) - 1);
@@ -3614,10 +3620,11 @@ void saveResultsToFile(void) {
     printf(" - CSV  report: %s\n", csv_path);
 }
 
+
 // ===== 7. Stage 4/6 - Sorting & Reporting Main Menu (User Interaction)
 
 // Show the sorting & reporting menu and dispatch user commands.
-void menu_sort_and_report(void) { 
+void menu_sort_and_report(void) {
     int sub = -1;
     if (!auto_select_source_file()) {
         // No files available → show a message and return directly to the main menu.
@@ -3665,6 +3672,7 @@ void menu_sort_and_report(void) {
 
         int c;
         while ((c = getchar()) != '\n' && c != EOF);
+
 
         switch (sub) {
         case 1: {
